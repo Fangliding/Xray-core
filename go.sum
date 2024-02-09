@@ -127,8 +127,13 @@ github.com/refraction-networking/utls v1.5.4/go.mod h1:SPuDbBmgLGp8s+HLNc83Fuavw
 github.com/riobard/go-bloom v0.0.0-20200614022211-cdc8013cb5b3 h1:f/FNXud6gA3MNr8meMVVGxhp+QBTqY91tM8HjEuMjGg=
 github.com/riobard/go-bloom v0.0.0-20200614022211-cdc8013cb5b3/go.mod h1:HgjTstvQsPGkxUsCd2KWxErBblirPizecHcpD3ffK+s=
 github.com/russross/blackfriday v1.5.2/go.mod h1:JO/DiYxRf+HjHt06OyowR9PTA263kcR/rfWxYHBV53g=
+github.com/sagernet/sing v0.1.8/go.mod h1:jt1w2u7lJQFFSGLiRrRIs5YWmx4kAPfWuOejuDW9qMk=
 github.com/sagernet/sing v0.2.17 h1:vMPKb3MV0Aa5ws4dCJkRI8XEjrsUcDn810czd0FwmzI=
 github.com/sagernet/sing v0.2.17/go.mod h1:OL6k2F0vHmEzXz2KW19qQzu172FDgSbUSODylighuVo=
+github.com/sagernet/sing-mux v0.0.0-20230425101127-4e8851eb1a2c h1:56vRmAIFvQZi9V2kNBNM/tOinmLtR9hx1xAWeDbTZb4=
+github.com/sagernet/sing-mux v0.0.0-20230425101127-4e8851eb1a2c/go.mod h1:pF+RnLvCAOhECrvauy6LYOpBakJ/vuaF1Wm4lPsWryI=
+github.com/sagernet/sing-mux v0.1.4 h1:BPNPOQr6HkXG3iY/BrfvUKUl+A7gYsGKVSxvoR3PO50=
+github.com/sagernet/sing-mux v0.1.4/go.mod h1:dKvcu/sb3fZ88uGv9vzAqUej6J4W+pHu5GqjRuFwAWs=
 github.com/sagernet/sing-shadowsocks v0.2.5 h1:qxIttos4xu6ii7MTVJYA8EFQR7Q3KG6xMqmLJIFtBaY=
 github.com/sagernet/sing-shadowsocks v0.2.5/go.mod h1:MGWGkcU2xW2G2mfArT9/QqpVLOGU+dBaahZCtPHdt7A=
 github.com/sagernet/smux v0.0.0-20230312102458-337ec2a5af37 h1:HuE6xSwco/Xed8ajZ+coeYLmioq0Qp1/Z2zczFaV8as=
