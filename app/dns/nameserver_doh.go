@@ -354,7 +354,7 @@ func (s *DoHNameServer) findIPsForDomain(domain string, option dns_feature.IPOpt
 }
 
 // QueryIP implements Server.
-func (s *DoHNameServer) QueryIP(ctx context.Context, domain string, clientIP net.IP, option dns_feature.IPOption, disableCache bool) ([]net.IP, error) { // nolint: dupl
+func (s *DoHNameServer) QueryIP(ctx context.Context, domain string, clientIP net.IP, option dns_feature.IPOption, disableCache bool, bypassCacheIfErr bool) ([]net.IP, error) { // nolint: dupl
 	fqdn := Fqdn(domain)
 	option = ResolveIpOptionOverride(s.queryStrategy, option)
 	if !option.IPv4Enable && !option.IPv6Enable {
@@ -365,7 +365,11 @@ func (s *DoHNameServer) QueryIP(ctx context.Context, domain string, clientIP net
 		errors.LogDebug(ctx, "DNS cache is disabled. Querying IP for ", domain, " at ", s.name)
 	} else {
 		ips, err := s.findIPsForDomain(fqdn, option)
-		if err == nil || err == dns_feature.ErrEmptyResponse {
+		if bypassCacheIfErr &&(err == nil || err == dns_feature.ErrEmptyResponse) {
+			errors.LogDebugInner(ctx, err, s.name, " cache HIT ", domain, " -> ", ips)
+			log.Record(&log.DNSLog{Server: s.name, Domain: domain, Result: ips, Status: log.DNSCacheHit, Elapsed: 0, Error: err})
+			return ips, err
+		} else if !bypassCacheIfErr && err != errRecordNotFound {
 			errors.LogDebugInner(ctx, err, s.name, " cache HIT ", domain, " -> ", ips)
 			log.Record(&log.DNSLog{Server: s.name, Domain: domain, Result: ips, Status: log.DNSCacheHit, Elapsed: 0, Error: err})
 			return ips, err

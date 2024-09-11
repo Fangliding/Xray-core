@@ -22,7 +22,7 @@ func TestQUICNameServer(t *testing.T) {
 	ips, err := s.QueryIP(ctx, "google.com", net.IP(nil), dns.IPOption{
 		IPv4Enable: true,
 		IPv6Enable: true,
-	}, false)
+	}, false, false)
 	cancel()
 	common.Must(err)
 	if len(ips) == 0 {
@@ -33,7 +33,7 @@ func TestQUICNameServer(t *testing.T) {
 	ips2, err := s.QueryIP(ctx2, "google.com", net.IP(nil), dns.IPOption{
 		IPv4Enable: true,
 		IPv6Enable: true,
-	}, true)
+	}, true, false)
 	cancel()
 	common.Must(err)
 	if r := cmp.Diff(ips2, ips); r != "" {
@@ -50,7 +50,7 @@ func TestQUICNameServerWithIPv4Override(t *testing.T) {
 	ips, err := s.QueryIP(ctx, "google.com", net.IP(nil), dns.IPOption{
 		IPv4Enable: true,
 		IPv6Enable: true,
-	}, false)
+	}, false, false)
 	cancel()
 	common.Must(err)
 	if len(ips) == 0 {
@@ -73,7 +73,7 @@ func TestQUICNameServerWithIPv6Override(t *testing.T) {
 	ips, err := s.QueryIP(ctx, "google.com", net.IP(nil), dns.IPOption{
 		IPv4Enable: true,
 		IPv6Enable: true,
-	}, false)
+	}, false, false)
 	cancel()
 	common.Must(err)
 	if len(ips) == 0 {

@@ -312,7 +312,7 @@ func (s *TCPNameServer) findIPsForDomain(domain string, option dns_feature.IPOpt
 }
 
 // QueryIP implements Server.
-func (s *TCPNameServer) QueryIP(ctx context.Context, domain string, clientIP net.IP, option dns_feature.IPOption, disableCache bool) ([]net.IP, error) {
+func (s *TCPNameServer) QueryIP(ctx context.Context, domain string, clientIP net.IP, option dns_feature.IPOption, disableCache bool, bypassCacheIfErr bool) ([]net.IP, error) {
 	fqdn := Fqdn(domain)
 	option = ResolveIpOptionOverride(s.queryStrategy, option)
 	if !option.IPv4Enable && !option.IPv6Enable {

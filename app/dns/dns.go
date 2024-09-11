@@ -25,6 +25,7 @@ type DNS struct {
 	tag                    string
 	disableCache           bool
 	disableFallback        bool
+	bypassCacheIfErr       bool
 	disableFallbackIfMatch bool
 	ipOption               *dns.IPOption
 	hosts                  *StaticHosts
@@ -143,6 +144,7 @@ func New(ctx context.Context, config *Config) (*DNS, error) {
 		disableCache:           config.DisableCache,
 		disableFallback:        config.DisableFallback,
 		disableFallbackIfMatch: config.DisableFallbackIfMatch,
+		bypassCacheIfErr:       config.BypassCacheIfErr,
 	}, nil
 }
 
@@ -205,7 +207,7 @@ func (s *DNS) LookupIP(domain string, option dns.IPOption) ([]net.IP, error) {
 			errors.LogDebug(s.ctx, "skip DNS resolution for domain ", domain, " at server ", client.Name())
 			continue
 		}
-		ips, err := client.QueryIP(ctx, domain, option, s.disableCache)
+		ips, err := client.QueryIP(ctx, domain, option, s.disableCache, s.bypassCacheIfErr)
 		if len(ips) > 0 {
 			return ips, nil
 		}

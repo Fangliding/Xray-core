@@ -18,7 +18,7 @@ func TestLocalNameServer(t *testing.T) {
 		IPv4Enable: true,
 		IPv6Enable: true,
 		FakeEnable: false,
-	}, false)
+	}, false, false)
 	cancel()
 	common.Must(err)
 	if len(ips) == 0 {

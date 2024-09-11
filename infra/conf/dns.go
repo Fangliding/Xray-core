@@ -137,6 +137,7 @@ type DNSConfig struct {
 	DisableCache           bool                `json:"disableCache"`
 	DisableFallback        bool                `json:"disableFallback"`
 	DisableFallbackIfMatch bool                `json:"disableFallbackIfMatch"`
+	BypassCacheIfErr       bool                `json:"bypassCacheIfErr"`
 }
 
 type HostAddress struct {
@@ -317,6 +318,7 @@ func (c *DNSConfig) Build() (*dns.Config, error) {
 		DisableFallback:        c.DisableFallback,
 		DisableFallbackIfMatch: c.DisableFallbackIfMatch,
 		QueryStrategy:          resolveQueryStrategy(c.QueryStrategy),
+		BypassCacheIfErr:       c.BypassCacheIfErr,
 	}
 
 	if c.ClientIP != nil {
