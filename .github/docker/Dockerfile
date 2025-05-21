@@ -9,6 +9,7 @@ ADD https://github.com/v2fly/geoip/releases/latest/download/geoip.dat /v2fly/geo
 ADD https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat /v2fly/geosite.dat
 ADD https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat /loyalsoldier/geoip.dat
 ADD https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat /loyalsoldier/geosite.dat
+RUN chmod +x /usr/share
 
 # chainguard/static contains only tzdata and ca-certificates, can be built with multiarch static binaries.
 FROM --platform=linux/amd64 chainguard/static:latest
@@ -25,4 +26,4 @@ ENTRYPOINT [ "/usr/bin/xray" ]
 CMD [ "-confdir", "/etc/xray/" ]
 
 ARG flavor=v2fly
-COPY --from=build --chmod=644 /$flavor /usr/bin/xray
+COPY --from=build --chmod=644 /$flavor /usr/share/xray
