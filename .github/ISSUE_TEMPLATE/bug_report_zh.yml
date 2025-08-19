@@ -7,7 +7,7 @@ body:
       description: |-
         请勾选以下所有选项以证明您已经阅读并理解了以下要求，否则该 issue 将被关闭。
       options:
-        - label: 我读完了模板中的所有注释，确保填写符合要求。
+        - label: 我读完了 issue 模板中的所有注释，确保填写符合要求。
           required: true
         - label: 我保证阅读了文档，了解所有我编写的配置文件项的含义，而不是大量堆砌看似有用的选项或默认值。
           required: true
@@ -56,40 +56,23 @@ body:
         (config)
         </code></pre></details>
         ```
-        如果问题可以只使用某一端复现(如按文档正确编写配置后核心启动失败/崩溃)，可以在下面不需要的项目填入N/A.
   - type: textarea
     attributes:
       label: 客户端配置
-      value: |-
-        <details><pre><code>
-
-        </code></pre></details>
     validations:
       required: true
   - type: textarea
     attributes:
       label: 服务端配置
-      value: |-
-        <details><pre><code>
-
-        </code></pre></details>
     validations:
       required: true
   - type: textarea
     attributes:
       label: 客户端日志
-      value: |-
-        <details><pre><code>
-
-        </code></pre></details>
     validations:
       required: true
   - type: textarea
     attributes:
       label: 服务端日志
-      value: |-
-        <details><pre><code>
-
-        </code></pre></details>
     validations:
       required: true
