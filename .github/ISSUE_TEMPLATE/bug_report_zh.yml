@@ -55,6 +55,7 @@ body:
         <details><pre><code>
         (config)
         </code></pre></details>
+        ```
         如果问题可以只使用某一端复现(如按文档正确编写配置后核心启动失败/崩溃)，可以在下面不需要的项目填入N/A.
   - type: textarea
     attributes:
